@@ -1,3 +1,7 @@
+import streamlit as st 
+st.title("snake game ")
+user_input=st.text_input("enter same input")
+st.write(f"you entered:{user_input}")
 import tkinter as tk
 import random
 
@@ -70,19 +74,12 @@ class SnakeGame:
             self.score_label.config(text=f"Score: {self.score}")
         else:
             self.snake.pop()  
-            
 
     def check_collisions(self):
         """Checks if the snake collides with walls or itself."""
         head = self.snake[0]
-
-
-
         if head[0] < 0 or head[0] >= 600 or head[1] < 0 or head[1] >= 400:
             self.game_over()
-        
-        
-        
         if head in self.snake[1:]:
             self.game_over()
 
